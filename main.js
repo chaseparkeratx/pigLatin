@@ -1,5 +1,4 @@
 'use strict';
-
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
@@ -10,12 +9,41 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-const pigLatin = (word) => {
-
-  // Your code here
-
+// const words = [
+//   simpleArray: 'car', 'dog'
+//   complexArray: 'create', 'valley'
+//   vowelArray: 'egg', 'emission'
+// ]
+  // const lowTrimString = {'HeLlO ', ' RoCkEt'}
+  let pigLatin = function(word) {
+    let oldWord = word.split('');
+    let vowels = ['a','e','i','o','u'];
+    let newWord = '';
+    for(let i = 0; i < vowels.length-1; i++) {
+        for(let y = 0; y < word.length-1; y++) {
+            if(word[y] === vowels[i]) {
+                for(let x = y; x < word.length; x++){
+                    newWord = newWord + word[x];
+                }
+                for(let n = 0; n < y; n++){ 
+                    newWord = newWord + word[n];
+                }
+                return newWord + "ay";
+            }       
+        }
+    }
 }
+// const pigLatin = (word) => {
+//   if(words[0] === 'a','e','i','o','u') {
+//     return words + 'yay'
+//   }
+// }
+
+//   for (let i = 0; i < word.length; i++)
+//   console.log(word[i])
+// }
+
+// pigLatin()
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
